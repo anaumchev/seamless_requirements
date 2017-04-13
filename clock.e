@@ -1,6 +1,6 @@
 class CLOCK
 feature
-  second, minute, hour: INTEGER
+  second, minute, hour, day: INTEGER
 
   tick
     do
@@ -10,6 +10,8 @@ feature
         else minute := 0
           if hour < 23 then hour := hour + 1
           else hour := 0
+            if day < 6 then day := day + 1
+            end
           end
         end
       end
@@ -22,5 +24,6 @@ feature
       old second = 59 and old minute = 59 and old hour < 23 implies hour = old hour + 1
       old second = 59 and old minute = 59 and old hour = 23 implies hour = 0
       old second < 59 implies hour = old hour      
+      old second = 59 and old minute = 59 and old hour = 23 and old day < 6 implies day = old day + 1
     end
 end
