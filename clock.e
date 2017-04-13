@@ -27,5 +27,6 @@ feature
       old second < 59 implies hour = old hour      
       old second = 59 and old minute = 59 and old hour = 23 and old day < 6 implies day = old day + 1
       old second = 59 and old minute = 59 and old hour = 23 and old day = 6 implies day = 0
+      old second < 59 implies day = old day
     end
 end
